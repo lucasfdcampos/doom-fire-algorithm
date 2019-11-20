@@ -38,12 +38,13 @@ function updateFireIntensityPerPixel(currentPixelIndex) {
     if (belowPixelIndex >= fireWidth * fireHeight) {
         return
     }
-
-    const decay = 1
+    
+    const decay = Math.floor(Math.random() * 3)
     const belowPixelFireIntensity = firePixelsArray[belowPixelIndex]
     const newFireIntensity = belowPixelFireIntensity - decay >= 0 ? belowPixelFireIntensity - decay : 0
 
-    firePixelsArray[currentPixelIndex] = newFireIntensity
+    // fire looks to the side
+    firePixelsArray[currentPixelIndex - decay] = newFireIntensity
 }
 
 
